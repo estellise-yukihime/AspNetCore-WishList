@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Mvc;
+using WishList.Controllers;
 using Xunit;
 
 namespace WishListTests
@@ -78,6 +79,9 @@ namespace WishListTests
         [Fact(DisplayName = "Create Item Create HttpGet Action @create-item-create-httpget-action")]
         public void CreateItemCreateHttpGetActionTest()
         {
+            // fix rider not loading project assembly
+            _ = new ItemController(null);
+            
             // Get appropriate path to file for the current operating system
             var filePath = ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + "WishList" + Path.DirectorySeparatorChar + "Controllers" + Path.DirectorySeparatorChar + "ItemController.cs";
             // Assert Index.cshtml is in the Views/Home folder
@@ -111,6 +115,9 @@ namespace WishListTests
         [Fact(DisplayName = "Create Item Create HttpPost Action @create-item-create-httppost-action")]
         public void CreateItemCreateHttpPostActionTest()
         {
+            // fix rider not loading project assembly
+            _ = new ItemController(null);
+            
             // Get appropriate path to file for the current operating system
             var filePath = ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + "WishList" + Path.DirectorySeparatorChar + "Controllers" + Path.DirectorySeparatorChar + "ItemController.cs";
             // Assert Index.cshtml is in the Views/Home folder
