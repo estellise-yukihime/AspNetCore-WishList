@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using WishList.Controllers;
 using Xunit;
 
 namespace WishListTests
@@ -16,6 +16,10 @@ namespace WishListTests
             // Assert Index.cshtml is in the Views/Home folder
             Assert.True(File.Exists(filePath), "`HomeController.cs` was not found in the `Controllers` folder.");
 
+            // To fix error in test, assembly not included.
+            // Rider specific problem?
+            _ = new HomeController();
+            
             var controllerType = TestHelpers.GetUserType("WishList.Controllers.HomeController");
 
             Assert.True(controllerType != null, "`HomeController.cs` was found, but does not appear to contain a `public` `HomeController` class.");

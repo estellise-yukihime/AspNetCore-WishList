@@ -15,5 +15,16 @@ namespace WishListTests
                     where type.FullName == fullName
                     select type).FirstOrDefault();
         }
+        
+        // public static Type GetUserType2(string fullName)
+        // {
+        //     var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+        //     var assemblies = loadedAssemblies.Where(x => x.FullName.StartsWith(_projectName)).ToList();
+        //     var types = assemblies.SelectMany(x => x.GetTypes()).ToList();
+        //     var fullnameType = types.Where(x => x.FullName == fullName).ToList();
+        //     var type = fullnameType.Select(x => x).FirstOrDefault();
+        //
+        //     return type;
+        // }
     }
 }
