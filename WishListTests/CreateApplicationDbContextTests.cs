@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using WishList.Data;
 using Xunit;
 
 namespace WishListTests
@@ -11,6 +12,9 @@ namespace WishListTests
         [Fact(DisplayName = "Create Class ApplicationDbContext @create-class-applicationdbcontext")]
         public void CreateApplicationDbContextTest()
         {
+            // fix rider not loading assembly
+            _ = new ApplicationDbContext(new DbContextOptionsBuilder().Options);
+
             // Get appropriate path to file for the current operating system
             var filePath = ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + ".." + Path.DirectorySeparatorChar + "WishList" + Path.DirectorySeparatorChar + "Data" + Path.DirectorySeparatorChar + "ApplicationDbContext.cs";
             // Assert Index.cshtml is in the Views/Home folder
